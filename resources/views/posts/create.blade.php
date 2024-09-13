@@ -1,6 +1,5 @@
 <x-app-layout>
     <h1>Create Post</h1>
-
     <form action="{{ route('posts.store') }}" method="post">
         @csrf
         <label for="title">Title</label>

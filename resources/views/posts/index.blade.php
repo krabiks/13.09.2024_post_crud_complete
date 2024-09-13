@@ -6,7 +6,6 @@
             <h2>Title: {{$post->title}}</h2>
             <p>Content: {{$post->content}}</p>
             <div>
-                <!-- Correct route syntax -->
                 <a href="{{ route('posts.show', $post) }}">Show</a>
                 <a href="{{ route('posts.edit', $post) }}">Edit</a>
                 <form action="{{ route('posts.destroy', $post) }}" method="post">
