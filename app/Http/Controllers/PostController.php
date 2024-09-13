@@ -12,7 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all(); // Correct variable name
+        return view('posts.index', ['posts' => $posts]); // Correct array syntax
     }
 
     /**
@@ -40,7 +41,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', ['post' => $post]); // Correct array syntax
     }
 
     /**
@@ -48,7 +49,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]); // Correct array syntax
     }
 
     /**
@@ -56,7 +57,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+        $data['user_id'] = 1;
+
+       // Post::create($data);
+       $post->update($data);
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -64,6 +70,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route('posts.index');
     }
 }
