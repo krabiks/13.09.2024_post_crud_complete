@@ -1,6 +1,8 @@
 <x-app-layout>
     <h1>All posts</h1>
     <ul>
+    <a href="{{ route('posts.create') }}" class="btn btn-primary">Create post</a>
+    <br>
         @foreach($posts as $post)
         <li>
             <h2>Title: {{$post->title}}</h2>
